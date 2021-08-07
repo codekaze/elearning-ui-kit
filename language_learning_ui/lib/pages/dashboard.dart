@@ -14,18 +14,25 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
+  int selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
         showSelectedLabels: false,
         showUnselectedLabels: false,
+        currentIndex: selectedIndex,
         unselectedIconTheme: IconThemeData(
           color: Color.fromRGBO(202, 205, 219, 1),
         ),
         selectedIconTheme: IconThemeData(
           color: Constants.primaryColor,
         ),
+        onTap: (index) {
+          selectedIndex = index;
+          setState(() {});
+        },
         items: [
           BottomNavigationBarItem(
             label: "",
